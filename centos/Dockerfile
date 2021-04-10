@@ -4,7 +4,7 @@ LABEL maintainer="snowdream <sn0wdr1am@icloud.com>"
 
 ENV CPULIMIT_VERSION=0.2 \
     CPU_USAGE=90 \
-    XMRIG_VERSION=5.11.1  
+    XMRIG_VERSION=v6.11.0-C3 
 
 RUN dnf install -y wget \
     &&  dnf groupinstall  -y 'Development Tools' \
@@ -15,17 +15,16 @@ RUN dnf install -y wget \
     &&  make \
     &&  cp src/cpulimit /usr/bin/ \
     &&  cd /root \
-    &&  wget --no-check-certificate -c https://github.com/C3Pool/profit-switching-miner/blob/master/xmrig-${XMRIG_VERSION}-profit-switching-Linux.tar.gz?raw=true -O xmrig-${XMRIG_VERSION}-profit-switching-Linux.tar.gz \
-    &&  tar zxvf xmrig-${XMRIG_VERSION}-profit-switching-Linux.tar.gz  \
-    &&  cd xmrig-${XMRIG_VERSION}-prifit-switching-Linux \
+    &&  wget --no-check-certificate -c https://github.com/C3Pool/xmrig-C3/releases/download/${XMRIG_VERSION}/xmrig-${XMRIG_VERSION}-linux-Static.tar.gz -O xmrig-${XMRIG_VERSION}-linux-Static.tar.gz \
+    &&  tar zxvf xmrig-${XMRIG_VERSION}-linux-Static.tar.gz  \
     &&  cp xmrig /usr/bin/ \
     &&  mkdir -p /etc/xmrig \
     &&  cp config.json /etc/xmrig \
     &&  cd /root \
     &&  rm v${CPULIMIT_VERSION}.tar.gz \
     &&  rm -rf cpulimit-${CPULIMIT_VERSION} \
-    &&  rm xmrig-${XMRIG_VERSION}-profit-switching-Linux.tar.gz  \
-    &&  rm -rf xmrig-${XMRIG_VERSION}-prifit-switching-Linux \
+    &&  rm xmrig-${XMRIG_VERSION}-linux-Static.tar.gz  \
+    &&  rm -rf xmrig* \
     &&  dnf group remove  -y 'Development Tools'  \
     &&  dnf clean all
 
