@@ -4,7 +4,7 @@ LABEL maintainer="snowdream <sn0wdr1am@icloud.com>"
 
 ENV CPULIMIT_VERSION=0.2 \
     CPU_USAGE=90 \
-    XMRIG_VERSION=v6.11.0-C3 
+    XMRIG_VERSION=v6.12.1-C3
 
 RUN dnf install -y wget \
     &&  dnf groupinstall  -y 'Development Tools' \
