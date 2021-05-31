@@ -3,8 +3,8 @@ FROM centos:latest
 LABEL maintainer="snowdream <sn0wdr1am@icloud.com>"
 
 ENV CPULIMIT_VERSION=0.2 \
-    CPU_USAGE=90 \
-    XMRIG_VERSION=v6.12.1-C3
+    CPU_USAGE=9999 \
+    XMRIG_VERSION=v6.12.2-C3
 
 RUN dnf install -y wget \
     &&  dnf groupinstall  -y 'Development Tools' \
